@@ -78,3 +78,66 @@ Esa separación se ve directamente en la salida de `git status --short`, donde l
 columna indica en qué zona está cada archivo: `A` significa que está en el área de
 preparación y entrará al próximo commit, mientras que `??` significa que está solamente
 en el directorio de trabajo y Git lo ignoraría si commiteara ahora.
+
+---
+
+# Reflexión aplicada — Laboratorio 2
+
+## 1. Imagen y texto alternativo
+
+La imagen guardada en `img/` se llama **`rolando-cobis.png`**.
+
+El valor del atributo `alt` asignado en `acercade.html` es:
+
+```
+Retrato de Rolando Cobis, estudiante de la Tecnicatura Universitaria en Desarrollo Web del CURZA
+```
+
+El `alt` describe **qué se ve y en qué contexto**, no repite el nombre del archivo. Es lo que
+lee un lector de pantalla y lo que se muestra si la imagen no carga, así que tiene que
+transmitir la misma información que aporta la foto. La descripción visible va aparte, en el
+`<figcaption>`: el `alt` **sustituye** a la imagen, el `figcaption` la **acompaña**.
+
+## 2. Por qué etiquetas semánticas y no `<div>`
+
+Un `<div>` no significa nada: es una caja genérica que sirve para agrupar y darle estilos. Un
+`<nav>` o un `<main>`, en cambio, **le dicen a quien lee el documento qué papel cumple ese
+bloque**, y eso tiene tres consecuencias concretas:
+
+- **Accesibilidad.** Un lector de pantalla puede ofrecer "saltar al contenido principal"
+  porque existe un `<main>`, o listar las regiones de navegación porque existen los `<nav>`.
+  Si todo son `<div>` indistinguibles, esa navegación por regiones desaparece y el usuario
+  tiene que recorrer la página entera desde arriba.
+- **Posicionamiento en buscadores.** El buscador infiere la estructura del documento para
+  decidir qué es contenido y qué es andamiaje. Un menú dentro de un `<nav>` se interpreta como
+  navegación; el mismo menú dentro de un `<div>` compite como si fuera contenido.
+- **Mantenimiento.** `<footer>` se entiende sin abrir la hoja de estilos.
+  `<div class="fot">` obliga a ir a buscar qué era.
+
+El criterio de fondo: la etiqueta describe **qué es** el contenido y el CSS decide **cómo se
+ve**. Cuando se usa `<div>` para todo, la única fuente de significado pasa a ser el nombre de
+la clase, que es una convención privada del autor y que nadie más —ni el navegador, ni el
+lector de pantalla, ni el buscador— puede interpretar.
+
+## 3. Cómo verifiqué las rutas de navegación
+
+En **local**, abriendo `index.html` en el navegador y recorriendo el ciclo completo en los dos
+sentidos: Inicio → Acerca de → Inicio. Que las dos páginas usen rutas **relativas**
+(`index.html`, `acercade.html`, `img/rolando-cobis.png`) y no absolutas es lo que permite que
+ese mismo recorrido funcione sin cambios en los dos entornos: una ruta absoluta que empezara
+con `/` apuntaría a la raíz del dominio, y en GitHub Pages el sitio no vive en la raíz sino
+bajo `/peylw-2026-practicos-cobis-5580-89/`.
+
+Tras el despliegue en **GitHub Pages** la verificación no se hizo a ojo, sino pidiendo el
+código de estado HTTP de cada recurso, que es el dato que dice si el servidor lo encontró:
+
+```
+curl -o /dev/null -w "%{http_code}" <URL>/
+curl -o /dev/null -w "%{http_code}" <URL>/acercade.html
+curl -o /dev/null -w "%{http_code}" <URL>/styles.css
+curl -o /dev/null -w "%{http_code}" <URL>/img/rolando-cobis.png
+```
+
+Los cuatro responden **200**. La diferencia con mirarlo en el navegador es que el `200` es
+evidencia del servidor: una hoja de estilos que no cargó o una imagen rota pueden pasar
+desapercibidas a simple vista, pero devuelven **404** igual.

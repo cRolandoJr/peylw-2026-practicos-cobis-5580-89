@@ -53,3 +53,39 @@ programs.git = {
   };
 };
 ```
+
+---
+
+# Laboratorio 2: Estructura y Semántica Web con HTML5
+
+| | |
+| :--- | :--- |
+| **Nombre y Apellido** | Rolando Cobis |
+| **Legajo/Matrícula** | CURZA-9389 |
+| **Últimos 4 dígitos del DNI** | 5580 |
+| **Token Único** | `cobis-5580-89` |
+| **Fecha de Entrega** | 2026-09-07 |
+| **Repositorio de GitHub** | https://github.com/cRolandoJr/peylw-2026-practicos-cobis-5580-89 |
+| **Página en GitHub Pages** | https://crolandojr.github.io/peylw-2026-practicos-cobis-5580-89/ |
+
+## Contenido del TP2
+
+```
+├── index.html      página de bienvenida
+├── acercade.html   biografía, figura e imagen
+├── styles.css      hoja de estilos básica vinculada
+└── img/
+    └── rolando-cobis.png
+```
+
+## Estructura semántica utilizada
+
+| Etiqueta | Dónde | Para qué |
+| :--- | :--- | :--- |
+| `<header>` | ambas | Cabecera con el `<h1>` del portal |
+| `<nav>` | ambas | Lista de navegación entre las dos páginas |
+| `<main>` | ambas | Contenido principal, único por documento |
+| `<section>` | ambas | Bloques temáticos con su propio encabezado |
+| `<article>` | acercade | La biografía, que es contenido autocontenido |
+| `<figure>` / `<figcaption>` | acercade | La imagen junto a su descripción |
+| `<footer>` | ambas | Derechos, nodo universitario y token |
