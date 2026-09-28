@@ -141,3 +141,32 @@ curl -o /dev/null -w "%{http_code}" <URL>/img/rolando-cobis.png
 Los cuatro responden **200**. La diferencia con mirarlo en el navegador es que el `200` es
 evidencia del servidor: una hoja de estilos que no cargó o una imagen rota pueden pasar
 desapercibidas a simple vista, pero devuelven **404** igual.
+
+---
+
+# Reflexión aplicada — Laboratorio 3
+
+## 1. Campo del código postal
+
+```html
+<label for="cp">Código postal:</label>
+<input type="text" id="cp" name="cp" pattern="^[A-Z]\d{4}[A-Z]{3}$"
+       title="Formato: una letra mayúscula, cuatro dígitos y tres letras mayúsculas (ej: R8500AAF)">
+```
+
+## 2. La etiqueta `<label>` y el atributo `for`
+
+El `<label>` es el texto que dice qué va en cada campo. Además, si hacés clic en el texto se activa el
+campo, y los lectores de pantalla lo leen en voz alta. Para unirlos, el `for` del label tiene que ser
+igual al `id` del input:
+
+```html
+<label for="email">Correo electrónico:</label>
+<input type="email" id="email" name="email" required>
+```
+
+## 3. Radios con distinto `name` y con el mismo `name`
+
+Si los radios tienen el mismo `name`, forman un grupo y solo se puede elegir uno: al marcar otro, el
+anterior se desmarca. Si cada uno tiene un `name` distinto, no se conocen entre sí y se pueden marcar
+todos a la vez, que no es lo que se busca.

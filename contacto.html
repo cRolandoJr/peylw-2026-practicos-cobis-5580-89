@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Portal de Rolando Cobis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- TOKEN-ALUMNO: cobis-5580-89 -->
+
+    <header>
+        <h1>Portal de Rolando Cobis - cobis-5580-89</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acercade.html">Acerca de</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Formulario de contacto</h2>
+
+            <form>
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" maxlength="20" required>
+                </p>
+                <p>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" maxlength="20">
+                </p>
+                <p>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </p>
+                <p>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 2920 123456">
+                </p>
+                <p>
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" min="16" max="120">
+                </p>
+                <p>
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion">
+                </p>
+                <p>
+                    <label for="provincia">Provincia:</label>
+                    <input type="text" id="provincia" name="provincia" list="provincias">
+                    <datalist id="provincias">
+                        <option value="Río Negro">
+                        <option value="Neuquén">
+                        <option value="Chubut">
+                        <option value="Santa Cruz">
+                        <option value="Tierra del Fuego">
+                        <option value="La Pampa">
+                    </datalist>
+                </p>
+                <p>
+                    <label for="cp">Código postal:</label>
+                    <input type="text" id="cp" name="cp" pattern="^[A-Z]\d{4}[A-Z]{3}$"
+                           title="Formato: una letra mayúscula, cuatro dígitos y tres letras mayúsculas (ej: R8500AAF)">
+                </p>
+
+                <fieldset>
+                    <legend>Método de contacto preferido</legend>
+                    <input type="radio" id="metodo-email" name="metodo" value="email" checked>
+                    <label for="metodo-email">Correo electrónico</label>
+                    <input type="radio" id="metodo-postal" name="metodo" value="postal">
+                    <label for="metodo-postal">Correo postal</label>
+                    <input type="radio" id="metodo-telefono" name="metodo" value="telefono">
+                    <label for="metodo-telefono">Teléfono</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Suscripción de interés</legend>
+                    <input type="checkbox" id="sus-noticias" name="suscripcion" value="noticias">
+                    <label for="sus-noticias">Noticias</label>
+                    <input type="checkbox" id="sus-promociones" name="suscripcion" value="promociones">
+                    <label for="sus-promociones">Promociones</label>
+                    <input type="checkbox" id="sus-alertas" name="suscripcion" value="alertas" checked>
+                    <label for="sus-alertas">Alertas</label>
+                    <input type="checkbox" id="sus-eventos" name="suscripcion" value="eventos">
+                    <label for="sus-eventos">Eventos</label>
+                </fieldset>
+
+                <p>
+                    <button type="submit" id="btn-cargar-cobis-5580-89">Cargar</button>
+                </p>
+            </form>
+
+            <table>
+                <tr><th>Nombre</th><td id="resumen-nombre"></td></tr>
+                <tr><th>Apellido</th><td id="resumen-apellido"></td></tr>
+                <tr><th>Email</th><td id="resumen-email"></td></tr>
+                <tr><th>Teléfono</th><td id="resumen-telefono"></td></tr>
+                <tr><th>Edad</th><td id="resumen-edad"></td></tr>
+                <tr><th>Dirección</th><td id="resumen-direccion"></td></tr>
+                <tr><th>Provincia</th><td id="resumen-provincia"></td></tr>
+                <tr><th>CP</th><td id="resumen-cp"></td></tr>
+                <tr><th>Método de Contacto</th><td id="resumen-metodo"></td></tr>
+                <tr><th>Suscripciones</th><td id="resumen-suscripciones"></td></tr>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Rolando Cobis</p>
+        <p>CURZAS - UNCo, Viedma, Río Negro</p>
+        <p>Token: cobis-5580-89</p>
+    </footer>
+</body>
+</html>
